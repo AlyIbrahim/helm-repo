@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"purple-v2"}, {"apiVersion":"apps/v1","kind":"Deployment","name":"red-v2"},{"apiVersion":"apps/v1","kind":"Deployment","name":"blue-v1"},{"apiVersion":"apps/v1","kind":"Deployment","name":"green"},{"apiVersion":"apps/v1","kind":"Deployment","name":"orange"}]'
+  labels:
+    app: colorpad
+    version: v2
+    color: colorpad
+    app.kubernetes.io/component: colorpad
+    app.kubernetes.io/instance: colorpad
+    app.kubernetes.io/part-of: colorpad
+    app.openshift.io/runtime: angularjs
+  name: colorpad-v2
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: colorpad
+      version: v2
+      deployment: colorpad
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: colorpad
+        version: v2
+        deployment: colorpad
+    spec:
+      containers:
+      - image: quay.io/aibrahim/colorpad:v2
+        imagePullPolicy: Always
+        name: colorpad
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/app-root/etc/nginx.default.d/colorpad.conf
+          name: nginx-conf
+          subPath: colorpad.conf
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: colors-routes
+        name: nginx-conf
+        

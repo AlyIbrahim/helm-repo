@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  application.properties: |
+    {{ .Values.runtime }}.jaeger.service-name={{ .Chart.Name }}
+    {{ .Values.runtime }}.jaeger.sampler-type=const
+    {{ .Values.runtime }}.jaeger.sampler-param=1
+    {{ .Values.runtime }}.log.console.format=%d{HH:mm:ss} %-5p traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-config

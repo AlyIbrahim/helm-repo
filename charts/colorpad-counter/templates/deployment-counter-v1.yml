@@ -1,0 +1,61 @@
+apiVersion: apps/{{ .Values.version }}
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/connects-to: >-
+      [{"apiVersion":"apps/{{ .Values.version }}","kind":"Deployment","name":"postgresql"}]
+  labels:
+    app: {{ .Chart.Name }}
+    version: {{ .Values.version }}
+    app.kubernetes.io/component: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Chart.Name }}
+    app.kubernetes.io/part-of: colorpad
+    app.openshift.io/runtime: {{ .Values.runtime }}
+  name: {{ .Chart.Name }}-{{ .Values.version }}
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      version: {{ .Values.version }}
+      deployment: {{ .Chart.Name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        version: {{ .Values.version }}
+        deployment: {{ .Chart.Name }}
+    spec:
+      containers:
+      - env:
+        image: quay.io/aibrahim/{{ .Chart.Name }}-service-db-jvm:latest
+        imagePullPolicy: Always
+        name: {{ .Chart.Name }}
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: deployments/config/application.properties
+          name: {{ .Values.runtime }}-conf
+          subPath: application.properties
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: {{ .Chart.Name }}-config
+        name: {{ .Values.runtime }}-conf
+        

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "colorpad-helm.fullname" . }}-test-connection"
+  labels:
+    {{- include "colorpad-helm.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "colorpad-helm.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
