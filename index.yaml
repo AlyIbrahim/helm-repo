@@ -1,31 +1,31 @@
 apiVersion: v1
 entries:
-  colorpad:
+  colorpad-db:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T16:04:49.97354929-05:00"
+    created: "2021-09-16T16:45:05.485101288-05:00"
     description: A Helm chart for Kubernetes
-    digest: cd35390000bb088adf49417495f7102361df2a000c1bd0f8d93814a70202f2d0
-    name: colorpad
+    digest: e4fd719fb48d929cae1c387e528636c8e7b4e4ea83cf44fcf16058606a1c0b0d
+    name: colorpad-db
     type: application
     urls:
-    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-0.1.0.tgz
+    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-db-0.1.0.tgz
     version: 0.1.0
-  colorpad-node:
+  colorpad-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T16:04:49.974878061-05:00"
+    created: "2021-09-16T16:45:05.485769872-05:00"
     description: A Helm chart for Kubernetes
-    digest: 46ba2afb5a718644cdb8601c9f5c5c9d30cd1327bd07b817972f73a6c5a271d8
-    name: colorpad-node
+    digest: f073101721ce903332b6e4d0e948309405b7f42ee2c7902a53117d1f2dc3cb92
+    name: colorpad-ui
     type: application
     urls:
-    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-node-0.1.0.tgz
+    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-ui-0.1.0.tgz
     version: 0.1.0
   colors-server-quarkus-jvm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T16:04:49.975752305-05:00"
+    created: "2021-09-16T16:45:05.486389247-05:00"
     description: A Helm chart for Kubernetes
     digest: 78101c87df6ac9ec880d7525cae5a2a710d1b416d0fb1f0d238a71d0823f67c3
     name: colors-server-quarkus-jvm
@@ -36,7 +36,7 @@ entries:
   counter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T16:04:49.976732697-05:00"
+    created: "2021-09-16T16:45:05.487033784-05:00"
     description: A Helm chart for Kubernetes
     digest: 2cec2bf623e362e217e456cf05d91acb0e3a4ada50fe2f9f793381e27e3a8e49
     name: counter
@@ -44,4 +44,4 @@ entries:
     urls:
     - https://alyibrahim.gihub.io/helm-repo/charts/counter-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-16T16:04:49.970907409-05:00"
+generated: "2021-09-16T16:45:05.483584258-05:00"

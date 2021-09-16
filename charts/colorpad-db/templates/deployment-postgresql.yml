@@ -3,21 +3,23 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: postgresql
+    app: colorpad-db
     template: postgresql-ephemeral-template
-  name: postgresql
+    app.kubernetes.io/part-of: colorpad
+    app.openshift.io/runtime: postgresql
+  name: colorpad-db
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: postgresql
-      deployment: postgresql
+      app: colorpad-db
+      deployment: colorpad-db
   template:
     metadata:
       labels:
-        app: postgresql
-        deployment: postgresql
+        app: colorpad-db
+        deployment: colorpad-db
     spec:
       containers:
       - env:
@@ -25,20 +27,20 @@ spec:
           valueFrom:
             secretKeyRef:
               key: database-user
-              name: postgresql
+              name: colorpad-db
         - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
               key: database-password
-              name: postgresql
+              name: colorpad-db
         - name: POSTGRESQL_DATABASE
           valueFrom:
             secretKeyRef:
               key: database-name
-              name: postgresql
+              name: colorpad-db
         image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql:latest
         imagePullPolicy: IfNotPresent
-        name: postgresql
+        name: colorpad-db
         livenessProbe:
           exec:
             command:
@@ -49,7 +51,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 10
-        name: postgresql
+        name: colorpad-db
         ports:
         - containerPort: 5432
           protocol: TCP
@@ -72,7 +74,7 @@ spec:
         terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /var/lib/pgsql/data
-          name: postgresql-data
+          name: colorpad-db-data
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -80,4 +82,4 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
       - emptyDir: {}
-        name: postgresql-data
+        name: colorpad-db-data

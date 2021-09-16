@@ -1,15 +1,15 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: {{.Chart.Name }}
+  name: {{.Values.appName }}
   labels:
-    app: {{ .Chart.Name }}
+    app: {{ .Values.appName }}
   annotations:
     openshift.io/host.generated: 'true'
 spec:
   to:
     kind: Service
-    name: {{ .Chart.Name  }}
+    name: {{ .Values.appName  }}
     weight: 100
   port:
     targetPort: http
