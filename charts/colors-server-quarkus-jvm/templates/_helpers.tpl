@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "colorpad-blue.name" -}}
+{{- define "colors-server-quarkus-jvm.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "colorpad-blue.fullname" -}}
+{{- define "colors-server-quarkus-jvm.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "colorpad-blue.chart" -}}
+{{- define "colors-server-quarkus-jvm.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "colorpad-blue.labels" -}}
-helm.sh/chart: {{ include "colorpad-blue.chart" . }}
-{{ include "colorpad-blue.selectorLabels" . }}
+{{- define "colors-server-quarkus-jvm.labels" -}}
+helm.sh/chart: {{ include "colors-server-quarkus-jvm.chart" . }}
+{{ include "colors-server-quarkus-jvm.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "colorpad-blue.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "colorpad-blue.name" . }}
+{{- define "colors-server-quarkus-jvm.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "colors-server-quarkus-jvm.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "colorpad-blue.serviceAccountName" -}}
+{{- define "colors-server-quarkus-jvm.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "colorpad-blue.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "colors-server-quarkus-jvm.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

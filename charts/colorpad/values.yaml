@@ -6,6 +6,8 @@ version: v2
 
 replicaCount: 1
 
+appName: colorpad
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent

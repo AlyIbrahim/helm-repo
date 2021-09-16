@@ -3,7 +3,7 @@ entries:
   colorpad:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T15:29:11.426000353-05:00"
+    created: "2021-09-16T16:04:49.97354929-05:00"
     description: A Helm chart for Kubernetes
     digest: cd35390000bb088adf49417495f7102361df2a000c1bd0f8d93814a70202f2d0
     name: colorpad
@@ -11,4 +11,48 @@ entries:
     urls:
     - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-16T15:29:11.422831925-05:00"
+  colorpad-blue:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-16T15:47:32.697941074-05:00"
+    description: A Helm chart for Kubernetes
+    digest: b81ae12c19ca4e97d9102f7ac87bf5ec019a103089928a19acc2a23a2080362f
+    name: colorpad-blue
+    type: application
+    urls:
+    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-blue-0.1.0.tgz
+    version: 0.1.0
+  colorpad-node:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-16T16:04:49.974878061-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 46ba2afb5a718644cdb8601c9f5c5c9d30cd1327bd07b817972f73a6c5a271d8
+    name: colorpad-node
+    type: application
+    urls:
+    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-node-0.1.0.tgz
+    version: 0.1.0
+  colors-server-quarkus-jvm:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-16T16:04:49.975752305-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 78101c87df6ac9ec880d7525cae5a2a710d1b416d0fb1f0d238a71d0823f67c3
+    name: colors-server-quarkus-jvm
+    type: application
+    urls:
+    - https://alyibrahim.gihub.io/helm-repo/charts/colors-server-quarkus-jvm-0.1.0.tgz
+    version: 0.1.0
+  counter:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-16T16:04:49.976732697-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 2cec2bf623e362e217e456cf05d91acb0e3a4ada50fe2f9f793381e27e3a8e49
+    name: counter
+    type: application
+    urls:
+    - https://alyibrahim.gihub.io/helm-repo/charts/counter-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-09-16T16:04:49.970907409-05:00"
