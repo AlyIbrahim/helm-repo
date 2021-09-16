@@ -11,17 +11,6 @@ entries:
     urls:
     - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-0.1.0.tgz
     version: 0.1.0
-  colorpad-blue:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-09-16T15:47:32.697941074-05:00"
-    description: A Helm chart for Kubernetes
-    digest: b81ae12c19ca4e97d9102f7ac87bf5ec019a103089928a19acc2a23a2080362f
-    name: colorpad-blue
-    type: application
-    urls:
-    - https://alyibrahim.gihub.io/helm-repo/charts/colorpad-blue-0.1.0.tgz
-    version: 0.1.0
   colorpad-node:
   - apiVersion: v2
     appVersion: 1.16.0
