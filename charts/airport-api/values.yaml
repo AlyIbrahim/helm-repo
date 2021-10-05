@@ -1,0 +1,10 @@
+# Default values for airport-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+appName: "airport-api"
+version: "latest"
+host: "apps.cluster-fe06.fe06.sandbox55.opentlc.com"
+replicaCount: 1
+service:
+  port: 8080

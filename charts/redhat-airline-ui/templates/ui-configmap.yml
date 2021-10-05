@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  {{- range .Values.apis }}
+  VUE_APP_{{ .appName | upper | replace "-" "_" }}_URL: http://{{.appName }}-{{ $.Release.Namespace }}.{{ $.Values.host }}
+  {{- end }}
+kind: ConfigMap
+metadata:
+  name: {{ .Values.appName }}-conf

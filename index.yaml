@@ -1,9 +1,31 @@
 apiVersion: v1
 entries:
+  airport-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-05T12:56:41.313731099-05:00"
+    description: Red Hat Airlines airport-api
+    digest: 2484e9c35fb77ceb46a614452b9c1009b9be7d5d901fe5c1e463e38ed06b21c0
+    name: airport-api
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/airport-api-0.1.0.tgz
+    version: 0.1.0
+  cargo-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-05T12:56:41.314096674-05:00"
+    description: Red Hat Airlines cargo-api
+    digest: 79ed03bec899c988a3ed25df1faf20619e26d768b6c5475e5520aeb91937dcd3
+    name: cargo-api
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/cargo-api-0.1.0.tgz
+    version: 0.1.0
   colorpad-db:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.570733258-05:00"
+    created: "2021-10-05T12:56:41.314540232-05:00"
     description: A Helm chart for Kubernetes
     digest: f431357b445ba2de82269c339bd75703b1278269a7f08b054bcc92b68f37e1f1
     name: colorpad-db
@@ -14,7 +36,7 @@ entries:
   colorpad-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.571560689-05:00"
+    created: "2021-10-05T12:56:41.315036246-05:00"
     description: A Helm chart for Kubernetes
     digest: f073101721ce903332b6e4d0e948309405b7f42ee2c7902a53117d1f2dc3cb92
     name: colorpad-ui
@@ -25,7 +47,7 @@ entries:
   colors-server-node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.572135724-05:00"
+    created: "2021-10-05T12:56:41.315458926-05:00"
     description: A Helm chart for Kubernetes
     digest: 279f6cb7409d48d5876945e0031f9c33bff38ce842704242b2221248f5bd8f7b
     name: colors-server-node
@@ -36,7 +58,7 @@ entries:
   colors-server-quarkus-jvm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.572801869-05:00"
+    created: "2021-10-05T12:56:41.315965321-05:00"
     description: A Helm chart for Kubernetes
     digest: 78101c87df6ac9ec880d7525cae5a2a710d1b416d0fb1f0d238a71d0823f67c3
     name: colors-server-quarkus-jvm
@@ -47,7 +69,7 @@ entries:
   counter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.573488378-05:00"
+    created: "2021-10-05T12:56:41.316556679-05:00"
     description: A Helm chart for Kubernetes
     digest: 2cec2bf623e362e217e456cf05d91acb0e3a4ada50fe2f9f793381e27e3a8e49
     name: counter
@@ -55,10 +77,32 @@ entries:
     urls:
     - https://alyibrahim.github.io/helm-repo/charts/counter-0.1.0.tgz
     version: 0.1.0
+  crewmember-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-05T12:56:41.316863397-05:00"
+    description: Red Hat Airlines crewmember-api
+    digest: 2943f071b8928b30cc68713967f5d381b9cce79f597ec20ef5607fb04b59823e
+    name: crewmember-api
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/crewmember-api-0.1.0.tgz
+    version: 0.1.0
+  flight-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-05T12:56:41.317179203-05:00"
+    description: Red Hat Airlines flight-api
+    digest: 5bd683338a353695008051bba2bafddf7ec5afb600f5ebe40c2a9f97fa131647
+    name: flight-api
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/flight-api-0.1.0.tgz
+    version: 0.1.0
   postgresql:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-16T18:30:00.574015625-05:00"
+    created: "2021-10-05T12:56:41.317635509-05:00"
     description: A Helm chart for Kubernetes
     digest: 7d383c83893f815b38a631d8eedde6938177e8664aae4eeb011b154777024b6e
     name: postgresql
@@ -66,4 +110,15 @@ entries:
     urls:
     - https://alyibrahim.github.io/helm-repo/charts/postgresql-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-16T18:30:00.5680005-05:00"
+  redhat-airline-ui:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-05T12:56:41.317979262-05:00"
+    description: Red Hat Airlines UI
+    digest: 41e30e2da95317031fb6a54cd075cbd4a13de693d8cae816af962e822409bcae
+    name: redhat-airline-ui
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/redhat-airline-ui-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-10-05T12:56:41.31321763-05:00"
