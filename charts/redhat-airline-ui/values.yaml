@@ -5,7 +5,10 @@
 appName: "redhat-airline-ui"
 version: "latest"
 host: "apps.cluster-fe06.fe06.sandbox55.opentlc.com"
+engine: "openshift"
+url: "ui.redhat-airline.com"
 replicaCount: 1
+
 service:
   port: 8080
 
@@ -14,3 +17,4 @@ apis:
 - appName: cargo-api
 - appName: crewmember-api
 - appName: flight-api
+

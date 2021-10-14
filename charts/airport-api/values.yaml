@@ -5,6 +5,7 @@
 appName: "airport-api"
 version: "latest"
 host: "apps.cluster-fe06.fe06.sandbox55.opentlc.com"
+engine: "openshift"
 replicaCount: 1
 service:
   port: 8080
