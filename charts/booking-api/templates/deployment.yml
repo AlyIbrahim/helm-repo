@@ -4,35 +4,35 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: '2'
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"redhat-airline-cargo-api:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"redhat-airline-cargo-api\")].image"}]
-  name: cargo-api
+      [{"from":{"kind":"ImageStreamTag","name":"redhat-airline-booking-api:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"redhat-airline-booking-api\")].image"}]
+  name: booking-api
   labels:
-    app: cargo-api
+    app: booking-api
     app.kubernetes.io/name: nodejs
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cargo-api
-      deployment: cargo-api
+      app: booking-api
+      deployment: booking-api
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: cargo-api
-        deployment: cargo-api
+        app: booking-api
+        deployment: booking-api
       annotations:
         openshift.io/generated-by: OpenShiftNewApp
     spec:
       containers:
-        - name: redhat-airline-cargo-api
-          image: quay.io/aibrahim/redhat-airline-cargo-api:{{ .Values.version }}
+        - name: redhat-airline-booking-api
+          image: quay.io/aibrahim/redhat-airline-booking-api:{{ .Values.version }}
           ports:
             - containerPort: 8080
               protocol: TCP
-          env:
-            - name: PORT
-              value: '8080'
+          envFrom:
+            - configMapRef:
+                name: booking-api-conf
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

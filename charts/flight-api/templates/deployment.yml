@@ -25,7 +25,7 @@ spec:
         openshift.io/generated-by: OpenShiftNewApp
     spec:
       containers:
-        - name: redhat-airline-airport-api
+        - name: redhat-airline-flight-api
           image: quay.io/aibrahim/redhat-airline-flight-api:{{ .Values.version  }}
           ports:
             - containerPort: 8080

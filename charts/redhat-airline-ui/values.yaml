@@ -1,10 +1,10 @@
-# Default values for airport-api.
+# Default values for redhat-airline-ui.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 appName: "redhat-airline-ui"
 version: "latest"
-host: "apps.cluster-fe06.fe06.sandbox55.opentlc.com"
+host: "apps.cluster-3c98.3c98.sandbox106.opentlc.com"
 engine: "openshift"
 url: "ui.redhat-airline.com"
 replicaCount: 1
@@ -14,6 +14,7 @@ service:
 
 apis:
 - appName: airport-api
+- appName: booking-api
 - appName: cargo-api
 - appName: crewmember-api
 - appName: flight-api

@@ -4,7 +4,7 @@
 
 appName: "airport-api"
 version: "latest"
-host: "apps.cluster-fe06.fe06.sandbox55.opentlc.com"
+host: "apps.cluster-3c98.3c98.sandbox106.opentlc.com"
 engine: "openshift"
 replicaCount: 1
 service:

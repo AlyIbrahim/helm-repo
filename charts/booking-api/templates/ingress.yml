@@ -1,0 +1,20 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ .Values.appName }}
+  {{- if eq .Values.engine "aks" }}
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+  {{- end }}    
+spec:
+  rules:
+    - host: {{ .Values.appName }}-{{ $.Release.Namespace }}.{{ $.Values.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.appName }}
+                port:
+                  number: 8080
