@@ -10,4 +10,4 @@ replicaCount: 1
 service:
   port: 8080
 infinispan:
-  url: redairline-infinispan.rhdgrid.svc.cluster.local
+  url: infinispan.data-grid.svc.cluster.local
