@@ -5,11 +5,6 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/hook: PostSync
   name: "{{ .Release.Name }}-animals-integration"
-  labels:
-    {{- $relname := .Release.Name -}}
-    {{ range $index, $service := (lookup "v1" "Service" $relname "").items }}
-    {{ $service.metadata.name }} : "{{ $index }}"
-    {{ end }}
 spec:
   apiRef:
     from:
