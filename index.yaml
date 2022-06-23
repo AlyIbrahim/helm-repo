@@ -3,144 +3,144 @@ entries:
   airport-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.348421483Z"
+    created: "2022-06-23T17:33:13.231719424Z"
     description: Red Hat Airlines airport-api
     digest: 5242bcd52788d7c612ce79cb4270582c87b060a2271eeb8fcbfb62068ded1d05
     name: airport-api
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/airport-api-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/airport-api-0.1.0.tgz
     version: 0.1.0
   booking-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.348835638Z"
+    created: "2022-06-23T17:33:13.2319738Z"
     description: A Helm chart for Kubernetes
     digest: 9f245476c9b8e9824c459f9821ca33202ee0b6cb71cfc506d5631b8fb4797bef
     name: booking-api
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/booking-api-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/booking-api-0.1.0.tgz
     version: 0.1.0
   cargo-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.349237967Z"
+    created: "2022-06-23T17:33:13.232224732Z"
     description: Red Hat Airlines cargo-api
     digest: 736be26fcd2a98ac51e58eb081edb79fb026f27734814cd98ba0fef0901432ee
     name: cargo-api
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/cargo-api-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/cargo-api-0.1.0.tgz
     version: 0.1.0
   colorpad-db:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.34977331Z"
+    created: "2022-06-23T17:33:13.232578514Z"
     description: A Helm chart for Kubernetes
     digest: f431357b445ba2de82269c339bd75703b1278269a7f08b054bcc92b68f37e1f1
     name: colorpad-db
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/colorpad-db-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/colorpad-db-0.1.0.tgz
     version: 0.1.0
   colorpad-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.350308264Z"
+    created: "2022-06-23T17:33:13.232990336Z"
     description: A Helm chart for Kubernetes
     digest: f073101721ce903332b6e4d0e948309405b7f42ee2c7902a53117d1f2dc3cb92
     name: colorpad-ui
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/colorpad-ui-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/colorpad-ui-0.1.0.tgz
     version: 0.1.0
   colors-server-node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.350715869Z"
+    created: "2022-06-23T17:33:13.233364551Z"
     description: A Helm chart for Kubernetes
     digest: 279f6cb7409d48d5876945e0031f9c33bff38ce842704242b2221248f5bd8f7b
     name: colors-server-node
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/colors-server-node-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/colors-server-node-0.1.0.tgz
     version: 0.1.0
   colors-server-quarkus-jvm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.351131245Z"
+    created: "2022-06-23T17:33:13.233788281Z"
     description: A Helm chart for Kubernetes
     digest: 78101c87df6ac9ec880d7525cae5a2a710d1b416d0fb1f0d238a71d0823f67c3
     name: colors-server-quarkus-jvm
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/colors-server-quarkus-jvm-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/colors-server-quarkus-jvm-0.1.0.tgz
     version: 0.1.0
   counter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.35157959Z"
+    created: "2022-06-23T17:33:13.234287657Z"
     description: A Helm chart for Kubernetes
     digest: 2cec2bf623e362e217e456cf05d91acb0e3a4ada50fe2f9f793381e27e3a8e49
     name: counter
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/counter-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/counter-0.1.0.tgz
     version: 0.1.0
   crewmember-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.351818341Z"
+    created: "2022-06-23T17:33:13.235293311Z"
     description: Red Hat Airlines crewmember-api
     digest: b8df0275165782b64598d31b4439b1cef64fe43d28514485b39b8e90ec578f3d
     name: crewmember-api
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/crewmember-api-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/crewmember-api-0.1.0.tgz
     version: 0.1.0
   flight-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.352062295Z"
+    created: "2022-06-23T17:33:13.236033417Z"
     description: Red Hat Airlines flight-api
     digest: f6f8f3818e4f02acd674c644ee045de1f5fe0a7ac58b69399b11e2e7b423d8f0
     name: flight-api
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/flight-api-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/flight-api-0.1.0.tgz
     version: 0.1.0
   postgresql:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.35246744Z"
+    created: "2022-06-23T17:33:13.23659511Z"
     description: A Helm chart for Kubernetes
     digest: 7d383c83893f815b38a631d8eedde6938177e8664aae4eeb011b154777024b6e
     name: postgresql
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/postgresql-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/postgresql-0.1.0.tgz
     version: 0.1.0
   redhat-airline-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.352770241Z"
+    created: "2022-06-23T17:33:13.236971134Z"
     description: Red Hat Airlines UI
     digest: 15809b2b53d2e38fadca183d6a1700150ab94d9336ae553ba424126e5a15a134
     name: redhat-airline-ui
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/redhat-airline-ui-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/redhat-airline-ui-0.1.0.tgz
     version: 0.1.0
   tenant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-23T17:17:52.354296695Z"
+    created: "2022-06-23T17:33:13.237945344Z"
     description: A Helm chart for Kubernetes
-    digest: 14875ebb5c6c6c14ffacb9ee3711c0e6a2c9ad245664f3125e3b9d18658f980e
+    digest: 23e30911f3146ec9f32ca81a41208dc55dedddaa3782baadb35780dc33d1ae6c
     name: tenant
     type: application
     urls:
-    - http://alyibrahim.gihub.io/helm-repo/charts/tenant-0.1.0.tgz
+    - https://alyibrahim.github.io/helm-repo/charts/tenant-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-23T17:17:52.347789815Z"
+generated: "2022-06-23T17:33:13.231304739Z"
