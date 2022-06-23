@@ -3,6 +3,7 @@ kind: Integration
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/hook: PostSync
   name: "{{ .Release.Name }}-animals-integration"
   labels:
     {{- $relname := .Release.Name -}}
