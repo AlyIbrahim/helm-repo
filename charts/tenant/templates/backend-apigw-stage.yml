@@ -3,11 +3,11 @@ kind: Stage
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: "animals-stage"
+  name: "{{ .Release.Name }}-animals-stage"
 spec:
   apiRef:
     from:
-      name: "{{ .Realease.Name }}-animals-api"
+      name: "{{ .Release.Name }}-animals-api"
   stageName: "prod"
   autoDeploy: true
   description: "auto deployed stage for {{ .Release.Name }}-animals-api"
