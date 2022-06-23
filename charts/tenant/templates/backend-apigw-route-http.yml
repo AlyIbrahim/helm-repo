@@ -3,12 +3,12 @@ kind: Route
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: "animals-route"
+  name: "{{ .Release.Name }}-animals-route"
 spec:
   apiRef:
     from:
-      name: "animals-api"
+      name: "{{ .Release.Name }}-animals-api"
   routeKey: "ANY /"
   targetRef:
     from:
-      name: "animals-backend"
+      name: "{{ .Release.Name }}-animals-integration"

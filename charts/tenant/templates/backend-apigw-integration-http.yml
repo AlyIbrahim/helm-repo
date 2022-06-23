@@ -5,11 +5,11 @@ kind: Integration
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: "{{ .Release.Name }}-backend"
+  name: "{{ .Release.Name }}-animals-integration"
 spec:
   apiRef:
     from:
-      name: "{{ .Release.Name }}-api"
+      name: "{{ .Release.Name }}-animals-api"
   integrationType: HTTP_PROXY
   integrationURI:  {{ index $service.status.ingress.hostname 0 }}
   integrationMethod: ANY

@@ -26,11 +26,11 @@ spec:
           subPath: application.properties
         livenessProbe:
           httpGet:
-            path: /
+            path: /animals
             port: http
         readinessProbe:
           httpGet:
-            path: /
+            path: /animals
             port: http
         resources:
           {{- toYaml .Values.resources | nindent 10 }}

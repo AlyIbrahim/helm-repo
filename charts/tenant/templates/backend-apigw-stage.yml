@@ -7,7 +7,7 @@ metadata:
 spec:
   apiRef:
     from:
-      name: "animals-api"
+      name: "{{ .Realease.Name }}-animals-api"
   stageName: "prod"
   autoDeploy: true
-  description: "auto deployed stage for animals-api"
+  description: "auto deployed stage for {{ .Release.Name }}-animals-api"

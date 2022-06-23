@@ -3,7 +3,7 @@ kind: API
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: animals-api
+  name: {{ .Release.Name }}-animals-api
 spec:
-  name: animals
+  name: {{ .Release.Name }}-animals-api
   protocolType: HTTP
