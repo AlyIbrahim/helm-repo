@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: animals-api
+  labels:
+    app: animals-api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: animals-api
+  template:
+    metadata:
+      labels:
+        app: animals-api
+    spec:
+      containers:
+      - name: animals-api
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: props-vol
+          mountPath: /deployments/config/application.properties
+          subPath: application.properties
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+        - name: props-vol
+          configMap:
+            name: animals-api
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - animals-api
+            topologyKey: "kubernetes.io/hostname"

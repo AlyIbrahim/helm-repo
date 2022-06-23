@@ -1,0 +1,18 @@
+{{ range $index, $service := (lookup "v1" "Service" "{{ .Release.Name }}" "{{ animals-api }}").items }}
+{{ if hasKey $service.status.loadBalancer.ingress  }}
+apiVersion: apigatewayv2.services.k8s.aws/v1alpha1
+kind: Integration
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: "{{ .Release.Name }}-backend"
+spec:
+  apiRef:
+    from:
+      name: "{{ .Release.Name }}-api"
+  integrationType: HTTP_PROXY
+  integrationURI:  {{ index $service.status.ingress.hostname 0 }}
+  integrationMethod: ANY
+  payloadFormatVersion: "1.0"
+{{ end }}
+{{ end }}

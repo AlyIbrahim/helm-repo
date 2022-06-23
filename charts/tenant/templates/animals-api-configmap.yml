@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  application.properties: |
+    # server.port = 8888
+
+    spring.datasource.url=jdbc:postgresql://animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com:5432/animals
+    spring.datasource.username=aly
+    spring.datasource.password=aly
+    spring.jpa.show-sql=true
+
+    ## Hibernate Properties
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+
+    # Hibernate ddl auto (create, create-drop, validate, update)
+    spring.jpa.hibernate.ddl-auto = create-drop
+
+    management.endpoints.web.exposure.include=health,info,prometheus
+kind: ConfigMap
+metadata:
+  name: animals-api

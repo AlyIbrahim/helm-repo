@@ -1,0 +1,13 @@
+apiVersion: apigatewayv2.services.k8s.aws/v1alpha1
+kind: Stage
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: "animals-stage"
+spec:
+  apiRef:
+    from:
+      name: "animals-api"
+  stageName: "prod"
+  autoDeploy: true
+  description: "auto deployed stage for animals-api"
