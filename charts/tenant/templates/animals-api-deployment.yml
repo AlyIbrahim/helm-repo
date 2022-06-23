@@ -25,14 +25,16 @@ spec:
         - name: props-vol
           mountPath: /deployments/config/application.properties
           subPath: application.properties
-        livenessProbe:
-          httpGet:
-            path: /animals
-            port: 8080
-        readinessProbe:
-          httpGet:
-            path: /animals
-            port: 8080
+#        livenessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+#          initialDelaySeconds: 5
+#          periodSeconds: 5
+#        readinessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
       volumes:

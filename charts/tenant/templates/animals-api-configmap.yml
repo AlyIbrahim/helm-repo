@@ -3,7 +3,7 @@ data:
   application.properties: |
     # server.port = 8888
 
-    spring.datasource.url=jdbc:postgresql://animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com:5432/animals
+    spring.datasource.url=jdbc:postgresql://postgresql:5432/animals
     spring.datasource.username=aly
     spring.datasource.password=aly
     spring.jpa.show-sql=true
