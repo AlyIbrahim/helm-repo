@@ -15,6 +15,5 @@ spec:
     from:
       name: "{{ .Release.Name }}-animals-api"
   integrationType: HTTP_PROXY
-  integrationURI: {{ (index (lookup "v1" "Service" $relname "animals-api").status.loadBalancer.ingress 0).hostname}}
   integrationMethod: GET
   payloadFormatVersion: "1.0"
