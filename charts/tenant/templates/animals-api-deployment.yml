@@ -19,7 +19,8 @@ spec:
         image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: 8080
+        - name: http
+          containerPort: 8080
         volumeMounts:
         - name: props-vol
           mountPath: /deployments/config/application.properties
