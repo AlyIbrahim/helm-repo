@@ -4,10 +4,16 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   name: "{{ .Release.Name }}-animals-integration"
+  labels:
+    {{- $relname := .Release.Name -}}
+    {{ range $index, $service := (lookup "v1" "Service" $relname "").items }}
+    {{ $service.metadata.name }} : "{{ $index }}"
+    {{ end }}
 spec:
   apiRef:
     from:
       name: "{{ .Release.Name }}-animals-api"
   integrationType: HTTP_PROXY
+  integrationURI: {{ (index (lookup "v1" "Service" $relname "animals-api").status.loadBalancer.ingress 0).hostname}}
   integrationMethod: GET
   payloadFormatVersion: "1.0"
