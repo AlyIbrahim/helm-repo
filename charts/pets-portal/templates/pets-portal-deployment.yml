@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pets-portal
+  labels:
+    app: pets-portal
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: pets-portal
+  template:
+    metadata:
+      labels:
+        app: pets-portal
+    spec:
+      containers:
+      - name: pets-portal
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
+        - name: props-vol
+          mountPath: /opt/app-root/etc/nginx.default.d/pets-portal.conf
+          subPath: pets-portal.conf
+#        livenessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+#          initialDelaySeconds: 5
+#          periodSeconds: 5
+#        readinessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+        - name: props-vol
+          configMap:
+            name: pets-portal
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - pets-portal
+            topologyKey: "kubernetes.io/hostname"

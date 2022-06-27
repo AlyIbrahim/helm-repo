@@ -1,0 +1,17 @@
+{{ if .Values.stage.create }}
+{{ range $.Values.apis }}
+apiVersion: apigatewayv2.services.k8s.aws/v1alpha1
+kind: Stage
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: "{{ $.Release.Name }}-{{ .name }}-stage"
+spec:
+  apiRef:
+    from:
+      name: "{{ $.Release.Name }}-{{ .name }}-api"
+  stageName: {{ $.Values.stage.name }}
+  autoDeploy: true
+  description: "auto deployed stage for {{ $.Release.Name }}-{{ .name }}-api"
+{{- end }}
+{{- end }}

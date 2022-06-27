@@ -1,0 +1,16 @@
+{{ range .Values.apis }}
+apiVersion: apigatewayv2.services.k8s.aws/v1alpha1
+kind: Route
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: "{{ $.Release.Name }}-{{ .name }}-route"
+spec:
+  apiRef:
+    from:
+      name: "{{ $.Release.Name }}-{{ .name }}-api"
+  routeKey: "{{ .routeKey }}"
+  targetRef:
+    from:
+      name: "{{ $.Release.Name }}-{{ .name }}-integration"
+{{- end }}

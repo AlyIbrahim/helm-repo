@@ -1,0 +1,20 @@
+# Default values for tenant.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+apis:
+  - name: animals
+    url: "http://api.example.com"
+    method: ANY
+    routeKey: "ANY /"
+
+authorizer:
+  enabled: true
+  create: true
+  userPoolId:
+  clientId:
+
+stage:
+  create: true
+  name: prod

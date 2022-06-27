@@ -1,0 +1,21 @@
+{{ if .Values.authorizer.enabled }}
+{{ range $.Values.apis }}
+apiVersion: apigatewayv2.services.k8s.aws/v1alpha1
+kind: Authorizer
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: "{{ $.Release.Name }}-{{ .name }}-authorizer"
+spec:
+  apiRef:
+    from:
+      name: "{{ $.Release.Name }}-{{ .name }}-api"
+  authorizerType: JWT
+  identitySource: "$request.header.Authorization"
+  jwtConfiguration:
+    issuer:
+      - https://cognito-idp.us-east-1.amazonaws.com/{{ $.Values.authorizer.userPoolId }}
+    audience:
+      - {{ $.Values.authorizer.ClientId }}
+{{- end }}
+{{- end }}
