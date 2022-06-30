@@ -42,10 +42,12 @@ service:
   port: 80
 
 db:
-  dns: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
+  host: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
   ip: 10.0.4.210
   port: 5432
   dbName: animals
+  dbUser: aly
+  dbPass:
 
 ingress:
   enabled: false

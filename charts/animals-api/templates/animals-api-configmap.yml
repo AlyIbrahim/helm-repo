@@ -4,8 +4,8 @@ data:
     # server.port = 8888
 
     spring.datasource.url=jdbc:postgresql://postgresql:5432/{{ .Values.db.dbName }}
-    spring.datasource.username=aly
-    spring.datasource.password=aly
+    spring.datasource.username={{ .Values.db.dbUser }}
+    spring.datasource.password={{ .Values.db.dbUser }}
     spring.jpa.show-sql=true
 
     ## Hibernate Properties

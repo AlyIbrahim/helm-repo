@@ -4,4 +4,4 @@ metadata:
   name: postgresql
 spec:
   type: ExternalName
-  externalName: {{ .Values.db.dns }}
+  externalName: {{ .Values.db.host }}
