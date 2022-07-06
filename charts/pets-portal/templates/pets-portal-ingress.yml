@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: pets-portal
 {{- if .Values.ingress.tls.enabled }}
-  annotaions:
+  annotations:
     cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.issuer }}
 {{- end }}
 spec:
