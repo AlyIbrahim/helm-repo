@@ -3,8 +3,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pets-portal
+{{- if .Values.ingress.tls.enabled }}
+  annotaions:
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.issuer }}
+{{- end }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
+{{- if .Values.ingress.tls.enabled }}
+  tls:
+  - hosts:
+    - {{ .Release.Namespace }}.{{ .Values.ingress.baseDomain }}
+    secretName: {{ .Release.Namespace }}-tls
+{{- end }}
   rules:
   - host: {{ .Release.Namespace }}.{{ .Values.ingress.baseDomain }}
     http:
