@@ -13,4 +13,9 @@ spec:
   targetRef:
     from:
       name: "{{ $.Release.Name }}-{{ .name }}-integration"
+{{- if $.Values.authorizer.enabled }}
+  authorizerRef:
+    from:
+      name: "{{ $.Release.Name }}-{{ .name }}-authorizer"
+{{- end }}
 {{- end }}
