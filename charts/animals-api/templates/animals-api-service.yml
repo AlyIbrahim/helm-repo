@@ -2,9 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: "alb"
+#    service.beta.kubernetes.io/aws-load-balancer-type: "alb"
 #    service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
+#    service.beta.kubernetes.io/aws-load-balancer-type: "external"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
     service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    service.beta.kubernetes.io/aws-load-balancer-name: {{ .Release.Name }}-animals-api
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-type: external
   labels:
     app: animals-api
   name: animals-api

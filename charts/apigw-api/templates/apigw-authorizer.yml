@@ -10,12 +10,13 @@ spec:
   apiRef:
     from:
       name: "{{ $.Release.Name }}-{{ .name }}-api"
+  name: "{{ $.Release.Name }}-{{ .name }}-authorizer"
   authorizerType: JWT
-  identitySource: "$request.header.Authorization"
+  identitySource: 
+    - "$request.header.Authorization"
   jwtConfiguration:
-    issuer:
-      - https://cognito-idp.us-east-1.amazonaws.com/{{ $.Values.authorizer.userPoolId }}
+    issuer: https://cognito-idp.us-east-1.amazonaws.com/{{ $.Values.authorizer.userPoolId }}
     audience:
-      - {{ $.Values.authorizer.ClientId }}
+      - {{ $.Values.authorizer.clientId }}
 {{- end }}
 {{- end }}
