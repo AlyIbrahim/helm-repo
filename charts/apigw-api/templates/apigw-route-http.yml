@@ -9,7 +9,7 @@ spec:
   apiRef:
     from:
       name: "{{ $.Release.Name }}-{{ .name }}-api"
-  routeKey: "{{ .routeKey }}"
+  routeKey: "{{ $.Values.routeKey }}"
   targetRef:
     from:
       name: "{{ $.Release.Name }}-{{ .name }}-integration"

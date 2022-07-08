@@ -10,7 +10,7 @@ spec:
     from:
       name: "{{ $.Release.Name }}-{{ .name }}-api"
   integrationType: HTTP_PROXY
-  integrationURI: {{ .url }}
-  integrationMethod: {{ .method }} 
+  integrationURI: {{ .url }}/{proxy}
+  integrationMethod: {{ $.Values.method }} 
   payloadFormatVersion: "1.0"
 {{- end }}

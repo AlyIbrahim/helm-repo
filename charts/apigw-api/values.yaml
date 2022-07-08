@@ -6,8 +6,8 @@
 apis:
   - name: animals
     url: "http://api.example.com/{proxy}"
-    method: ANY
-    routeKey: "ANY /{proxy+}"
+method: ANY
+routeKey: "ANY /{proxy+}"
 
 authorizer:
   enabled: true
