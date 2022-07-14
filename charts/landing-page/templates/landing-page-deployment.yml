@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: landing
+  name: landing-page
   labels:
-    app: landing
+    app: landing-page
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: landing
+      app: landing-page
   template:
     metadata:
       labels:
-        app: landing
+        app: landing-page
     spec:
       containers:
-      - name: landing
+      - name: landing-page
         image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: props-vol
           configMap:
-            name: landing
+            name: landing-page
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -39,5 +39,5 @@ spec:
               - key: app
                 operator: In
                 values:
-                - landing
+                - landing-page
             topologyKey: "kubernetes.io/hostname"
