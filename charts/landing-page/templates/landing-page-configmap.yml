@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  VITE_REGISTERATION_SERVICE={{ .Values.registeration_service }}
+  VITE_TENANT_SERVICE={{ .Values.tenant_service }}
+kind: ConfigMap
+metadata:
+  name: landing-page
+

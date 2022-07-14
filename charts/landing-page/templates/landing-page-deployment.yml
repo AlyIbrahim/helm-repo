@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing
+  labels:
+    app: landing
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: landing
+  template:
+    metadata:
+      labels:
+        app: landing
+    spec:
+      containers:
+      - name: landing
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
+        - name: props-vol
+          mountPath: /opt/app-root/src/.env
+          subPath: .env
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+        - name: props-vol
+          configMap:
+            name: landing
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - landing
+            topologyKey: "kubernetes.io/hostname"

@@ -1,0 +1,213 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"creationTimestamp":"2022-07-08T18:25:05Z","finalizers":["resources-finalizer.argocd.argoproj.io"],"generation":33,"name":"filo-pets-portal","namespace":"argocd","resourceVersion":"2991260","uid":"31fe7d06-1d10-46cc-b57f-068b94d1d21c"},"spec":{"destination":{"namespace":"filo","server":"https://kubernetes.default.svc"},"project":"default","source":{"chart":"pets-portal","helm":{"parameters":[{"name":"replicaCount","value":"2"},{"name":"service.type","value":"ClusterIP"},{"name":"ingress.enabled","value":"true"},{"name":"ingress.baseDomain","value":"kube.ab.tobealy.com"},{"name":"ingress.tls.enabled","value":"true"},{"name":"ingress.tls.issuer","value":"letsencrypt-prod-issuer"}]},"repoURL":"https://alyibrahim.github.io/helm-repo","targetRevision":"0.1.0"},"syncPolicy":{"automated":{"prune":true,"selfHeal":true},"syncOptions":["CreateNamespace=true","PreserveResourcesOnDeletion=false"]}},"status":{"health":{"status":"Healthy"},"history":[{"deployStartedAt":"2022-07-08T18:25:05Z","deployedAt":"2022-07-08T18:25:07Z","id":0,"revision":"0.1.0","source":{"chart":"pets-portal","helm":{"parameters":[{"name":"replicaCount","value":"2"},{"name":"service.type","value":"ClusterIP"},{"name":"ingress.enabled","value":"true"},{"name":"ingress.baseDomain","value":"kube.ab.tobealy.com"},{"name":"ingress.tls.enabled","value":"true"},{"name":"ingress.tls.issuer","value":"letsencrypt-prod-issuer"}]},"repoURL":"https://alyibrahim.github.io/helm-repo","targetRevision":"0.1.0"}}],"operationState":{"finishedAt":"2022-07-08T18:25:07Z","message":"successfully synced (all tasks run)","operation":{"initiatedBy":{"automated":true},"retry":{"limit":5},"sync":{"prune":true,"revision":"0.1.0","syncOptions":["CreateNamespace=true","PreserveResourcesOnDeletion=false"]}},"phase":"Succeeded","startedAt":"2022-07-08T18:25:05Z","syncResult":{"resources":[{"group":"","hookPhase":"Running","kind":"ConfigMap","message":"configmap/pets-portal created","name":"pets-portal","namespace":"filo","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"","hookPhase":"Running","kind":"Service","message":"service/pets-portal created","name":"pets-portal","namespace":"filo","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"apps","hookPhase":"Running","kind":"Deployment","message":"deployment.apps/pets-portal created","name":"pets-portal","namespace":"filo","status":"Synced","syncPhase":"Sync","version":"v1"},{"group":"networking.k8s.io","hookPhase":"Running","kind":"Ingress","message":"ingress.networking.k8s.io/pets-portal created","name":"pets-portal","namespace":"filo","status":"Synced","syncPhase":"Sync","version":"v1"}],"revision":"0.1.0","source":{"chart":"pets-portal","helm":{"parameters":[{"name":"replicaCount","value":"2"},{"name":"service.type","value":"ClusterIP"},{"name":"ingress.enabled","value":"true"},{"name":"ingress.baseDomain","value":"kube.ab.tobealy.com"},{"name":"ingress.tls.enabled","value":"true"},{"name":"ingress.tls.issuer","value":"letsencrypt-prod-issuer"}]},"repoURL":"https://alyibrahim.github.io/helm-repo","targetRevision":"0.1.0"}}},"reconciledAt":"2022-07-08T19:31:56Z","resources":[{"kind":"ConfigMap","name":"pets-portal","namespace":"filo","status":"Synced","version":"v1"},{"health":{"status":"Healthy"},"kind":"Service","name":"pets-portal","namespace":"filo","status":"Synced","version":"v1"},{"group":"apps","health":{"status":"Healthy"},"kind":"Deployment","name":"pets-portal","namespace":"filo","status":"Synced","version":"v1"},{"group":"networking.k8s.io","health":{"status":"Healthy"},"kind":"Ingress","name":"pets-portal","namespace":"filo","status":"Synced","version":"v1"}],"sourceType":"Helm","summary":{"externalURLs":["https://filo.kube.ab.tobealy.com/"],"images":["864674129776.dkr.ecr.us-east-1.amazonaws.com/pets-portal:codebuild"]},"sync":{"comparedTo":{"destination":{"namespace":"filo","server":"https://kubernetes.default.svc"},"source":{"chart":"pets-portal","helm":{"parameters":[{"name":"replicaCount","value":"2"},{"name":"service.type","value":"ClusterIP"},{"name":"ingress.enabled","value":"true"},{"name":"ingress.baseDomain","value":"kube.ab.tobealy.com"},{"name":"ingress.tls.enabled","value":"true"},{"name":"ingress.tls.issuer","value":"letsencrypt-prod-issuer"}]},"repoURL":"https://alyibrahim.github.io/helm-repo","targetRevision":"0.1.0"}},"revision":"0.1.0","status":"Synced"}}}
+  creationTimestamp: "2022-07-08T19:44:28Z"
+  generation: 22
+  name: filo-pets-portal
+  namespace: argocd
+  resourceVersion: "3006583"
+  uid: e5003afd-b887-4397-9ed5-7ad97a29870a
+spec:
+  destination:
+    namespace: filo
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: pets-portal
+    helm:
+      parameters:
+      - name: replicaCount
+        value: "2"
+      - name: service.type
+        value: ClusterIP
+      - name: ingress.enabled
+        value: "true"
+      - name: ingress.baseDomain
+        value: kube.ab.tobealy.com
+      - name: ingress.tls.enabled
+        value: "true"
+      - name: ingress.tls.issuer
+        value: letsencrypt-prod-issuer
+    repoURL: https://alyibrahim.github.io/helm-repo
+    targetRevision: 0.1.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PreserveResourcesOnDeletion=false
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-07-08T18:25:05Z"
+    deployedAt: "2022-07-08T18:25:07Z"
+    id: 0
+    revision: 0.1.0
+    source:
+      chart: pets-portal
+      helm:
+        parameters:
+        - name: replicaCount
+          value: "2"
+        - name: service.type
+          value: ClusterIP
+        - name: ingress.enabled
+          value: "true"
+        - name: ingress.baseDomain
+          value: kube.ab.tobealy.com
+        - name: ingress.tls.enabled
+          value: "true"
+        - name: ingress.tls.issuer
+          value: letsencrypt-prod-issuer
+      repoURL: https://alyibrahim.github.io/helm-repo
+      targetRevision: 0.1.0
+  operationState:
+    finishedAt: "2022-07-08T19:44:29Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - group: networking.k8s.io
+          kind: Ingress
+          name: pets-portal
+        - kind: ConfigMap
+          name: pets-portal
+        - kind: Service
+          name: pets-portal
+        - group: apps
+          kind: Deployment
+          name: pets-portal
+        revision: 0.1.0
+        syncOptions:
+        - CreateNamespace=true
+        - PreserveResourcesOnDeletion=false
+    phase: Succeeded
+    startedAt: "2022-07-08T19:44:28Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/pets-portal created
+        name: pets-portal
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/pets-portal created
+        name: pets-portal
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/pets-portal created
+        name: pets-portal
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: networking.k8s.io
+        hookPhase: Running
+        kind: Ingress
+        message: ingress.networking.k8s.io/pets-portal created
+        name: pets-portal
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 0.1.0
+      source:
+        chart: pets-portal
+        helm:
+          parameters:
+          - name: replicaCount
+            value: "2"
+          - name: service.type
+            value: ClusterIP
+          - name: ingress.enabled
+            value: "true"
+          - name: ingress.baseDomain
+            value: kube.ab.tobealy.com
+          - name: ingress.tls.enabled
+            value: "true"
+          - name: ingress.tls.issuer
+            value: letsencrypt-prod-issuer
+        repoURL: https://alyibrahim.github.io/helm-repo
+        targetRevision: 0.1.0
+  reconciledAt: "2022-07-08T20:14:33Z"
+  resources:
+  - kind: ConfigMap
+    name: pets-portal
+    namespace: filo
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: pets-portal
+    namespace: filo
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: pets-portal
+    namespace: filo
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: pets-portal
+    namespace: filo
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    externalURLs:
+    - https://filo.kube.ab.tobealy.com/
+    images:
+    - 864674129776.dkr.ecr.us-east-1.amazonaws.com/pets-portal:codebuild
+  sync:
+    comparedTo:
+      destination:
+        namespace: filo
+        server: https://kubernetes.default.svc
+      source:
+        chart: pets-portal
+        helm:
+          parameters:
+          - name: replicaCount
+            value: "2"
+          - name: service.type
+            value: ClusterIP
+          - name: ingress.enabled
+            value: "true"
+          - name: ingress.baseDomain
+            value: kube.ab.tobealy.com
+          - name: ingress.tls.enabled
+            value: "true"
+          - name: ingress.tls.issuer
+            value: letsencrypt-prod-issuer
+        repoURL: https://alyibrahim.github.io/helm-repo
+        targetRevision: 0.1.0
+    revision: 0.1.0
+    status: Synced

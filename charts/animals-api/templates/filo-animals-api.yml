@@ -1,0 +1,215 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"filo-animals-api","namespace":"argocd"},"spec":{"destination":{"name":"","namespace":"filo","server":"https://kubernetes.default.svc"},"project":"default","source":{"chart":"animals-api","helm":{"parameters":[{"name":"replicaCount","value":"2"},{"name":"db.host","value":"animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com"},{"name":"db.dbName","value":"filo"},{"name":"db.dbUser","value":"filo"}]},"path":"","repoURL":"https://alyibrahim.github.io/helm-repo","targetRevision":"0.1.0"},"syncPolicy":{"automated":{"prune":true,"selfHeal":true},"syncOptions":["CreateNamespace=true","PreserveResourcesOnDeletion=false"]}}}
+  creationTimestamp: "2022-07-08T18:25:06Z"
+  generation: 37
+  name: filo-animals-api
+  namespace: argocd
+  resourceVersion: "2998045"
+  uid: c15b8b10-77d6-401c-a342-6ec662c5e15a
+spec:
+  destination:
+    namespace: filo
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: animals-api
+    helm:
+      parameters:
+      - name: replicaCount
+        value: "2"
+      - name: db.host
+        value: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
+      - name: db.dbName
+        value: filo
+      - name: db.dbUser
+        value: filo
+    repoURL: https://alyibrahim.github.io/helm-repo
+    targetRevision: 0.1.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - PreserveResourcesOnDeletion=false
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-07-08T18:25:06Z"
+    deployedAt: "2022-07-08T18:25:07Z"
+    id: 0
+    revision: 0.1.0
+    source:
+      chart: animals-api
+      helm:
+        parameters:
+        - name: replicaCount
+          value: "2"
+        - name: db.host
+          value: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
+        - name: db.dbName
+          value: filo
+        - name: db.dbUser
+          value: filo
+      repoURL: https://alyibrahim.github.io/helm-repo
+      targetRevision: 0.1.0
+  operationState:
+    finishedAt: "2022-07-08T18:25:07Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        revision: 0.1.0
+        syncOptions:
+        - CreateNamespace=true
+        - PreserveResourcesOnDeletion=false
+    phase: Succeeded
+    startedAt: "2022-07-08T18:25:06Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/animals-api created
+        name: animals-api
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/postgresql created
+        name: postgresql
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/postgres created
+        name: postgres
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/animals-api created
+        name: animals-api
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/animals-api created
+        name: animals-api
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Endpoints
+        message: endpoints/postgres created
+        name: postgres
+        namespace: filo
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 0.1.0
+      source:
+        chart: animals-api
+        helm:
+          parameters:
+          - name: replicaCount
+            value: "2"
+          - name: db.host
+            value: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
+          - name: db.dbName
+            value: filo
+          - name: db.dbUser
+            value: filo
+        repoURL: https://alyibrahim.github.io/helm-repo
+        targetRevision: 0.1.0
+  reconciledAt: "2022-07-08T19:43:56Z"
+  resources:
+  - kind: ConfigMap
+    name: animals-api
+    namespace: filo
+    status: Synced
+    version: v1
+  - kind: Endpoints
+    name: postgres
+    namespace: filo
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: animals-api
+    namespace: filo
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: postgres
+    namespace: filo
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: postgresql
+    namespace: filo
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: animals-api
+    namespace: filo
+    status: Synced
+    version: v1
+  sourceType: Helm
+  summary:
+    images:
+    - 864674129776.dkr.ecr.us-east-1.amazonaws.com/animals:codebuild
+  sync:
+    comparedTo:
+      destination:
+        namespace: filo
+        server: https://kubernetes.default.svc
+      source:
+        chart: animals-api
+        helm:
+          parameters:
+          - name: replicaCount
+            value: "2"
+          - name: db.host
+            value: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
+          - name: db.dbName
+            value: filo
+          - name: db.dbUser
+            value: filo
+        repoURL: https://alyibrahim.github.io/helm-repo
+        targetRevision: 0.1.0
+    revision: 0.1.0
+    status: Synced

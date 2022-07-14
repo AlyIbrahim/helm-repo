@@ -3,7 +3,7 @@ entries:
   airport-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.293079847Z"
+    created: "2022-07-14T15:24:58.215087905Z"
     description: Red Hat Airlines airport-api
     digest: 5242bcd52788d7c612ce79cb4270582c87b060a2271eeb8fcbfb62068ded1d05
     name: airport-api
@@ -14,7 +14,7 @@ entries:
   animals-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.293952649Z"
+    created: "2022-07-14T15:24:58.215938937Z"
     description: A Helm chart for Kubernetes
     digest: 9f5e6c5dac800625506d7a22dd6ad4e7bd679030042ba8b53e03d2daf004fb08
     name: animals-api
@@ -25,7 +25,7 @@ entries:
   apigw-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.294348321Z"
+    created: "2022-07-14T15:24:58.216199942Z"
     description: A Helm chart for Kubernetes
     digest: d7b0ec9cf6d9b502f6787740e61fe033b96de4558beefda7f6001142848531b5
     name: apigw-api
@@ -36,7 +36,7 @@ entries:
   booking-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.294772906Z"
+    created: "2022-07-14T15:24:58.217558168Z"
     description: A Helm chart for Kubernetes
     digest: 9f245476c9b8e9824c459f9821ca33202ee0b6cb71cfc506d5631b8fb4797bef
     name: booking-api
@@ -47,7 +47,7 @@ entries:
   cargo-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.295175143Z"
+    created: "2022-07-14T15:24:58.218389129Z"
     description: Red Hat Airlines cargo-api
     digest: 736be26fcd2a98ac51e58eb081edb79fb026f27734814cd98ba0fef0901432ee
     name: cargo-api
@@ -58,7 +58,7 @@ entries:
   colorpad-db:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.295799254Z"
+    created: "2022-07-14T15:24:58.219707495Z"
     description: A Helm chart for Kubernetes
     digest: f431357b445ba2de82269c339bd75703b1278269a7f08b054bcc92b68f37e1f1
     name: colorpad-db
@@ -69,7 +69,7 @@ entries:
   colorpad-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.296396163Z"
+    created: "2022-07-14T15:24:58.220433104Z"
     description: A Helm chart for Kubernetes
     digest: f073101721ce903332b6e4d0e948309405b7f42ee2c7902a53117d1f2dc3cb92
     name: colorpad-ui
@@ -80,7 +80,7 @@ entries:
   colors-server-node:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.296800301Z"
+    created: "2022-07-14T15:24:58.221521954Z"
     description: A Helm chart for Kubernetes
     digest: 279f6cb7409d48d5876945e0031f9c33bff38ce842704242b2221248f5bd8f7b
     name: colors-server-node
@@ -91,7 +91,7 @@ entries:
   colors-server-quarkus-jvm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.297291696Z"
+    created: "2022-07-14T15:24:58.222049002Z"
     description: A Helm chart for Kubernetes
     digest: 78101c87df6ac9ec880d7525cae5a2a710d1b416d0fb1f0d238a71d0823f67c3
     name: colors-server-quarkus-jvm
@@ -102,7 +102,7 @@ entries:
   counter:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.297742289Z"
+    created: "2022-07-14T15:24:58.223069836Z"
     description: A Helm chart for Kubernetes
     digest: 2cec2bf623e362e217e456cf05d91acb0e3a4ada50fe2f9f793381e27e3a8e49
     name: counter
@@ -113,7 +113,7 @@ entries:
   crewmember-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.298005715Z"
+    created: "2022-07-14T15:24:58.224243498Z"
     description: Red Hat Airlines crewmember-api
     digest: b8df0275165782b64598d31b4439b1cef64fe43d28514485b39b8e90ec578f3d
     name: crewmember-api
@@ -124,7 +124,7 @@ entries:
   flight-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.29827092Z"
+    created: "2022-07-14T15:24:58.224859227Z"
     description: Red Hat Airlines flight-api
     digest: f6f8f3818e4f02acd674c644ee045de1f5fe0a7ac58b69399b11e2e7b423d8f0
     name: flight-api
@@ -132,10 +132,21 @@ entries:
     urls:
     - https://alyibrahim.github.io/helm-repo/charts/flight-api-0.1.0.tgz
     version: 0.1.0
+  landing-page:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-14T15:24:58.225819024Z"
+    description: A Helm chart for Kubernetes
+    digest: c4dfc1917a5a491e8ee00d860d7408660bcc0068691780457179f3789a734d90
+    name: landing-page
+    type: application
+    urls:
+    - https://alyibrahim.github.io/helm-repo/charts/landing-page-0.1.0.tgz
+    version: 0.1.0
   pets-portal:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.298797807Z"
+    created: "2022-07-14T15:24:58.226949725Z"
     description: A Helm chart for Kubernetes
     digest: c565165b22218317efc8073601f3c75804cc71ad4e8bf13d3ba155c75eae7429
     name: pets-portal
@@ -146,7 +157,7 @@ entries:
   postgresql:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.299226319Z"
+    created: "2022-07-14T15:24:58.228172227Z"
     description: A Helm chart for Kubernetes
     digest: 7d383c83893f815b38a631d8eedde6938177e8664aae4eeb011b154777024b6e
     name: postgresql
@@ -157,7 +168,7 @@ entries:
   redhat-airline-ui:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.300428497Z"
+    created: "2022-07-14T15:24:58.231546079Z"
     description: Red Hat Airlines UI
     digest: 15809b2b53d2e38fadca183d6a1700150ab94d9336ae553ba424126e5a15a134
     name: redhat-airline-ui
@@ -168,7 +179,7 @@ entries:
   tenant:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-08T19:24:03.30198678Z"
+    created: "2022-07-14T15:24:58.232824034Z"
     description: A Helm chart for Kubernetes
     digest: dc708e17247e715bac0aeb2c1736c30e6321ecac9093c3df97678ec6e0fd11a7
     name: tenant
@@ -176,4 +187,4 @@ entries:
     urls:
     - https://alyibrahim.github.io/helm-repo/charts/tenant-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-08T19:24:03.292277824Z"
+generated: "2022-07-14T15:24:58.211582028Z"
