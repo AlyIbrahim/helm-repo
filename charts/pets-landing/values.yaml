@@ -2,18 +2,19 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-apis:
-  - name: animals
-    host: animals-api
-    port: 8080
-
-vaccinesService: https://02977t916j.execute-api.us-east-1.amazonaws.com/prod
+registeration_service: https://e5807v836h.execute-api.us-east-1.amazonaws.com/default/Registeration
+tenant_service: http://tenant-api:8080
 
 replicaCount: 2
 
+## API
+#tenantApi: http://tenant-api.kube.ab.tobealy.com/tenant/
+tenantApi: http://tenant-api:8080/tenant/
+registerationService: https://e5807v836h.execute-api.us-east-1.amazonaws.com/default/Registeration
+
 image:
   registry: 864674129776.dkr.ecr.us-east-1.amazonaws.com
-  repository: pets-portal
+  repository: pets-landing
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "codebuild"
@@ -48,10 +49,6 @@ service:
   type: ClusterIP
   port: 80
 
-db:
-  dns: animals.cy10jvr7k0mv.us-east-1.rds.amazonaws.com
-  ip: 10.0.4.210
-  port: 5432
 
 ingress:
   enabled: true
@@ -86,7 +83,7 @@ resources:
     memory: 256Mi
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80

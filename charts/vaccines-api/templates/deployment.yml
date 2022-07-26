@@ -1,36 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: landing-page
+  name: vaccines-api
   labels:
-    app: landing-page
+    app: vaccines-api
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: landing-page
+      app: vaccines-api
   template:
     metadata:
       labels:
-        app: landing-page
+        app: vaccines-api
     spec:
+      serviceAccountName: vaccines-api-sa
       containers:
-      - name: landing-page
+      - name: vaccines-api
         image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: http
           containerPort: 8080
-        volumeMounts:
-        - name: props-vol
-          mountPath: /opt/app-root/src/.env
-          subPath: .env
+#        volumeMounts:
+#        - name: props-vol
+#          mountPath: /deployments/config/application.properties
+#          subPath: application.properties
+#        livenessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+#          initialDelaySeconds: 5
+#          periodSeconds: 5
+#        readinessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-      volumes:
-        - name: props-vol
-          configMap:
-            name: landing-page
+#      volumes:
+#        - name: props-vol
+#          configMap:
+#            name: vaccines-api
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -39,5 +50,5 @@ spec:
               - key: app
                 operator: In
                 values:
-                - landing-page
+                - vaccines-api
             topologyKey: "kubernetes.io/hostname"

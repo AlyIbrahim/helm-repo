@@ -4,8 +4,8 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "alb"
   labels:
-    app: landing-page
-  name: landing-page
+    app: {{ .Chart.Name }}
+  name: {{ .Chart.Name }}
 spec:
   ipFamilies:
   - IPv4
@@ -15,6 +15,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: landing-page
+    app: {{ .Chart.Name }}
   sessionAffinity: None
   type: {{ .Values.service.type }}

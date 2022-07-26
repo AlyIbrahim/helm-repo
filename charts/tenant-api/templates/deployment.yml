@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tenant-api
+  labels:
+    app: tenant-api
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: tenant-api
+  template:
+    metadata:
+      labels:
+        app: tenant-api
+    spec:
+      serviceAccountName: tenant-api-sa
+      containers:
+      - name: tenant-api
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8080
+#        volumeMounts:
+#        - name: props-vol
+#          mountPath: /deployments/config/application.properties
+#          subPath: application.properties
+#        livenessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+#          initialDelaySeconds: 5
+#          periodSeconds: 5
+#        readinessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+#      volumes:
+#        - name: props-vol
+#          configMap:
+#            name: tenant-api
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - tenant-api
+            topologyKey: "kubernetes.io/hostname"
