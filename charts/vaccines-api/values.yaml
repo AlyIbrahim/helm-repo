@@ -45,6 +45,7 @@ service:
 ingress:
   enabled: true
   className: "nginx"
+  baseDomain: "kube.ab.tobealy.com"
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
