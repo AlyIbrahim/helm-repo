@@ -23,8 +23,8 @@ spec:
           containerPort: 8080
         volumeMounts:
         - name: props-vol
-          mountPath: /opt/app-root/src/.env
-          subPath: .env
+          mountPath: /opt/app-root/etc/nginx.default.d/pets-landing.conf
+          subPath: pets-landing.conf
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
       volumes:
