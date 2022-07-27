@@ -10,7 +10,8 @@ replicaCount: 2
 ## API
 #tenantApi: http://tenant-api.kube.ab.tobealy.com/tenant/
 tenantApi: http://tenant-api:8080/tenant/
-registerationService: https://e5807v836h.execute-api.us-east-1.amazonaws.com/default/Registeration
+#registerationService: https://e5807v836h.execute-api.us-east-1.amazonaws.com/default/Registeration
+registerationService: https://chjdmqpfka.execute-api.us-east-1.amazonaws.com/register
 
 image:
   registry: 864674129776.dkr.ecr.us-east-1.amazonaws.com
