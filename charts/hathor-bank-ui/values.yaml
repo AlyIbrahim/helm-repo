@@ -6,7 +6,7 @@ api:
   protocol: https
   host: hathor-api.hathor-backend
   path: /
-  port: 8080
+  port: 443
 
 
 replicaCount: 1
