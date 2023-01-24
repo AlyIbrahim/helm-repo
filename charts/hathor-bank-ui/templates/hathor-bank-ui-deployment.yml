@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
+        - name: props-vol
+          mountPath: /opt/app-root/etc/nginx.default.d/hathor-bank.conf
+          subPath: hathor-bank.conf
+#        livenessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+#          initialDelaySeconds: 5
+#          periodSeconds: 5
+#        readinessProbe:
+#          httpGet:
+#            path: /animals
+#            port: 8080
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
+      volumes:
+        - name: props-vol
+          configMap:
+            name: {{ .Release.Name }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}
+            topologyKey: "kubernetes.io/hostname"
