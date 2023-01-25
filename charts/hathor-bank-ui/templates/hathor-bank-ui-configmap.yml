@@ -5,7 +5,8 @@ data:
     \       proxy_set_header   X-Real-IP            $remote_addr;\n
     \       proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;\n
     \       proxy_set_header   X-Forwarded-Proto    $scheme;\n        #proxy_set_header
-    Host $http_host;\n\n\tproxy_pass {{ .Values.api.protocol }}://{{ .Values.api.host }}:{{ .Values.api.port }}{{ .Values.api.path }};\n}\n"
+    Host $http_host;\n\n\tproxy_pass {{ .Values.api.protocol }}://{{ .Values.api.host }}:{{ .Values.api.port }}{{ .Values.api.path }};\n}\n
+    \   location / {\n try_files $uri /index.html;\n }"    
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}
