@@ -1,0 +1,20 @@
+apiVersion: eventbridge.services.k8s.aws/v1alpha1
+kind: Rule
+metadata:
+  name: game-play-rule
+spec:
+  name: "{{ .Values.aws.eventbridge.gameplay_rule.name }}"
+  description: "Rule to select game play events and forward to lambda game analytics"
+  eventBusRef:
+    from:
+      name: "{{ .Values.aws.eventbridge.eventbus.name }}"
+  eventPattern: |
+    {
+      "source":["com.aliction.game-events"],
+      "detail-type":["GamePlay"]
+    }
+  targets:
+    - arn: "arn:aws:sqs:{{ .Values.aws.region }}:{{ .Values.AWS_ACCOUNT }}:{{ .Values.aws.sqs.name }}"
+      id: game-play-target
+      retryPolicy:
+        maximumRetryAttempts: 0

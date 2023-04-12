@@ -1,0 +1,15 @@
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: Function
+metadata:
+  name: game-analyzer-func
+spec: 
+  name: "{{ .Values.aws.lambda.name }}"
+  role: arn:aws:iam::{{ .Values.AWS_ACCOUNT }}:role/GameAnalyzerExecutionRole
+  packageType: Zip
+  code:
+    s3Bucket: "{{ .Values.aws.s3.bucket }}"
+    s3Key: "{{ .Values.aws.s3.file }}"
+  architectures:
+    - arm64
+  runtime: "nodejs18.x"
+  handler: "index.handler"

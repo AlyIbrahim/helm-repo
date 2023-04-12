@@ -1,0 +1,20 @@
+apiVersion: eventbridge.services.k8s.aws/v1alpha1
+kind: Rule
+metadata:
+  name: game-over-rule
+spec:
+  name: "{{ .Values.aws.eventbridge.gameover_rule.name }}"
+  description: "Rule to select game over events and forward to lambda Leaderboard"
+  eventBusRef:
+    from:
+      name: "{{ .Values.aws.eventbridge.eventbus.name }}"
+  eventPattern: |
+    {
+      "source":["com.aliction.game-events"],
+      "detail-type":["GameOver"]
+    }
+  targets:
+    - arn: "arn:aws:lambda:{{ .Values.aws.region }}:{{ .Values.AWS_ACCOUNT }}:function:{{ .Values.aws.lambda.leaderboard }}"
+      id: Id820733c5-2af0-4f0b-b1a4-94ff390438d9
+      retryPolicy:
+        maximumRetryAttempts: 0

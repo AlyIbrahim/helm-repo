@@ -1,0 +1,20 @@
+apiVersion: sqs.services.k8s.aws/v1alpha1
+kind: Queue
+metadata:
+  name: "{{ .Values.aws.sqs.name }}"
+  annotations:
+    services.k8s.aws/region: {{ .Values.aws.region }}
+spec:
+  queueName: "{{ .Values.aws.sqs.name }}"
+  policy: |
+    {
+      "Statement": [{
+        "Sid": "__owner_statement",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "events.amazonaws.com"
+        },
+        "Action": "sqs:SendMessage",
+        "Resource": "arn:aws:sqs:{{ .Values.aws.region}}:{{ .Values.AWS_ACCOUNT }}:{{ .Values.aws.sqs.name }}"
+      }]
+    }

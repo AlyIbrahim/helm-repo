@@ -1,0 +1,9 @@
+apiVersion: lambda.services.k8s.aws/v1alpha1
+kind: EventSourceMapping
+metadata:
+  name: game-actions-sqs-lambda-mapping
+spec: 
+  functionRef:
+    from:
+      name: game-analyzer-func
+  eventSourceARN: "arn:aws:sqs:{{ .Values.aws.region}}:{{ .Values.AWS_ACCOUNT }}:{{ .Values.aws.sqs.name }}"
